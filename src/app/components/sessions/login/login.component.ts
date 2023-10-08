@@ -79,8 +79,6 @@ export class LoginComponent implements OnInit {
             toastRef.onHidden.subscribe(() => {
               this.router.navigate(['/dashboard']);
             });
-            this.router.navigate(['/dashboard']);
-
           } else {
             const toastConfig: Partial<IndividualConfig> = {
               timeOut: 1500,
@@ -114,7 +112,7 @@ export class LoginComponent implements OnInit {
       this.reactiveForm.reset();
     } else {
       // Form validation failed
-      // console.log('Invalid form');
+      console.log('Invalid form');
       this.spinnerService.hideSpinner();
       const toastConfig: Partial<IndividualConfig> = {
         timeOut: 1500,

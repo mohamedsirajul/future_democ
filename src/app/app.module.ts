@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/dashboard/login/login.component';
+import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
+import { LoginComponent } from './components/sessions/login/login.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -35,8 +37,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ToastrModule } from 'ngx-toastr';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
-import { SpinnerComponent } from './components/dashboard/spinner/spinner.component';
 
 @NgModule({
   declarations: [
