@@ -1,1 +1,48 @@
-<p>dashboard works!</p>
+
+<div>
+    <audio autoplay loop>
+      <source src="http://localhost:4200/assets/m1.mp3" type="audio/mp3">
+    </audio>
+  
+    <div class="video-background">
+      <video autoplay muted loop poster="fallback-image.jpg" id="bgvid">
+        <source src="http://localhost:4200/assets/v1.mp4" type="video/mp4">
+      </video>
+    </div>
+  
+    <div class="nav_bar_container">
+      <div class="nav_bar">
+  
+        <div class="nav-content">
+          <p>Nature AI</p>
+      </div>
+        <div class="current-time">
+          <span id="time">{{ currentTime | date: 'hh:mm:ss a' }}</span>
+        </div>
+  
+        <div class="logout-button" id="login_button">
+          <a id="logout_button">Logout</a>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="transparent-container">
+      <div class="inner-1">
+        <div class="control-panel-1">
+          <div class="control-panel-monitor-1">
+            <button class="fire_button" routerLink="/qr_verify">Vote</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="inner-2">
+        <div class="control-panel-2">
+          <div class="control-panel-monitor-2">
+            <button class="fire_button" (click)="about()">About</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -37,6 +37,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ToastrModule } from 'ngx-toastr';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QrVerifyComponent } from './components/qr-verify/qr-verify.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     LoginComponent,
     AuthLayoutComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    QrVerifyComponent
   ],
   imports: [
     BrowserModule,
