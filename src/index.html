@@ -12,7 +12,40 @@
 <body>
   <app-root></app-root>
 </body>
+<script src="http://127.0.0.1:5000/video_feed"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const startButton = document.getElementById('startButton');
+        const videoElement = document.getElementById('video');
+        const outputElement = document.getElementById('output');
+
+        startButton.addEventListener('click', () => {
+            startScanning();
+        });
+
+        async function startScanning() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+                videoElement.style.display = 'block'; // Show the video
+            } catch (error) {
+                console.error('Error accessing the webcam:', error);
+            }
+
+            const qrScanner = new QrScanner(videoElement, (result) => {
+                outputElement.textContent = `Scanned Data: ${result}`;
+            });
+
+            qrScanner.start();
+        }
+    });
+</script>
 </html>
+
+
+
+
+
 
 
 

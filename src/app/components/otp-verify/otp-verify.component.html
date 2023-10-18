@@ -1,0 +1,10 @@
+<div class="container">
+    <!-- OTP Input -->
+    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config" class="ng-otp-input-static"></ng-otp-input>
+  
+    <!-- Verify OTP Button -->
+    <!-- <button class="btn btn-success mt-3" (click)="handleClick()">Verify OTP</button> -->
+    <button class="btn btn-lg btn-primary order-btn  mt-4" (click)="handleClick()"[disabled]="!this.otp " type="button">Verify OTP</button>
+
+  </div>
+  

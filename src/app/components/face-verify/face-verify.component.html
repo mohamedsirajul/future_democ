@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        #video-container {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        #video {
+            width: 100%;
+            border: 2px solid #333;
+            background-color: #fff;
+            display: none; /* Initially hidden */
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #startButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Face Verification</h1>
+    <button id="startButton">Start Scanning</button>
+    <div id="video-container">
+        <video id="video" playsinline></video>
+    </div>
+    <div id="output"></div>
+
+    <button mat-raised-button color="warn" routerLink="/voting_panel">Next</button>
+</body>
+</html>

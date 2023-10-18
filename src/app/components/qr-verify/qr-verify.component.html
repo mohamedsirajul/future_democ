@@ -1,1 +1,131 @@
-<p>qr-verify works!</p>
+<div class="container">
+    <h1>qrcode verification</h1>
+  
+    <!-- devices -->
+    <!-- <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
+        <select
+          #select1
+          (change)="action.playDevice(select1.value)"
+          class="form-select form-select-sm"
+        >
+          <option [value]="null" selected>Select device</option>
+          <option
+            *ngFor="let c of action.devices.value; let i = index"
+            [value]="c.deviceId"
+            [selected]="i == action.deviceIndexActive"
+          >
+            {{ c.label }}
+          </option>
+        </select>
+      </div>
+    </div> -->
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
+          <mat-form-field>
+            <mat-label>Select device</mat-label>
+            <mat-select
+              #select1
+              (selectionChange)="action.playDevice($event.value)"
+              class="form-select form-select-sm"
+            >
+              <mat-option [value]="null">Select device</mat-option>
+              <mat-option
+                *ngFor="let c of action.devices.value; let i = index"
+                [value]="c.deviceId"
+              >
+                {{ c.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      
+    <!-- ngx-scanner-qrcode -->
+  
+    <div id="video-container">
+        <ngx-scanner-qrcode
+        #action="scanner"
+        [config]="config"
+        (event)="onEvent($event, action)"
+      ></ngx-scanner-qrcode>
+    </div>
+
+    <!-- loading -->
+    <p *ngIf="action.isLoading">⌛ Loading...</p>
+  
+    <!-- start/stop -->
+    <button
+      class="btn"
+      [class.btn-info]="!action.isStart"
+      [class.btn-warning]="action.isStart"
+      [disabled]="action.isLoading"
+      (click)="handle(action, action.isStart ? 'stop' : 'start')"
+    >
+      <img
+        [src]="
+          action.isStart
+            ? 'https://id1945.github.io/images/svg/camera-off.svg'
+            : 'https://id1945.github.io/images/svg/camera-on.svg'
+        "
+        width="30px"
+      />
+    </button>
+  
+    <!-- play/pause -->
+    <button
+      class="btn"
+      [class.btn-info]="!action.isStart"
+      [class.btn-warning]="action.isStart"
+      [disabled]="!action.isStart"
+      (click)="handle(action, action.isPause ? 'play' : 'pause')"
+    >
+      <img
+        [src]="
+          action.isPause
+            ? 'https://id1945.github.io/images/svg/play.svg'
+            : 'https://id1945.github.io/images/svg/pause.svg'
+        "
+        width="30px"
+      />
+    </button>
+  
+    <!-- isTorch -->
+    <button
+      class="btn"
+      [class.btn-info]="!action.isStart"
+      [class.btn-warning]="action.isStart"
+      [disabled]="!action.isStart"
+      (click)="action.isTorch = !action.isTorch; handle(action, 'torcher')"
+    >
+      <img
+        [src]="
+          action.isTorch
+            ? 'https://id1945.github.io/images/svg/flash-off.svg'
+            : 'https://id1945.github.io/images/svg/flash-on.svg'
+        "
+        width="30px"
+      />
+    </button>
+
+<br>
+    <input
+    #file
+    type="file"
+    (change)="onSelects(file.files)"
+    [multiple]="'multiple'"
+    [accept]="'.jpg, .png, .gif, .jpeg'"
+    class="btn btn-success my-2"
+  />
+
+  <div id="scannedqr" *ngFor="let item of qrCodeResult">
+    <ngx-scanner-qrcode
+      #actionFile="scanner"
+      [src]="item.url"
+      [config]="config"
+      (event)="onEvent($event)"
+    ></ngx-scanner-qrcode>
+    <div id="sign-in-button"></div>
+  </div>
+  </div>
+  

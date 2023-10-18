@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+
+@keyframes rotate_border{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+h1{
+    text-align: center;
+    color: rgb(12, 59, 59);
+}
+
+/* Define a class for the transparent container */
+.transparent-container {
+    background-color: rgba(0, 0, 0, 0.8); 
+    width: 80%;
+    max-width: 500px;
+    height: auto; 
+    padding: 1em; 
+    border-radius: 10%; 
+    margin: 80px;
+    float: left;
+    box-shadow: 0 0 5px 1px #0ff, 0 0 5px 1px #0ff inset; 
+}
+.transparent-container1 {
+    background-color: rgba(0, 0, 0, 0.8); 
+    width: 80%;
+    max-width: 600px;
+    height: auto; 
+    padding: 1em; 
+    border-radius: 10%; 
+    margin: 100px;
+    float: right;
+    box-shadow: 0 0 5px 1px #0ff, 0 0 5px 1px #0ff inset; 
+}
+
+
+html,
+body,
+.inner {
+  height: 100%;
+}
+body {
+
+  background-size: cover;
+  transform-style: preserve-3d;
+  -ms-perspective: 1200px;
+  perspective: 1200px;
+  overflow: hidden;
+}
+b{
+    color: white;
+}
